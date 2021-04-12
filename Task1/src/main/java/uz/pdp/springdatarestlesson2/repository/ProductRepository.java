@@ -16,11 +16,10 @@ import java.util.Optional;
 
 @RepositoryRestResource(path = "product", excerptProjection = ProductProjection.class)
 public interface ProductRepository extends JpaRepository<Product, Integer> {
-    Optional<Product> findAllByPriceBetweenPrice();
 
-@RestResource(path = "byPrice", rel = "byPrice")
-    @Query(nativeQuery = true, value = "select * from product p where p.price > min and where p.price < max")
-    List<Product> searchByPrice(@Param("min") Integer min, @Param("max") Integer max);
+    @RestResource(path = "byPrice")
+    public Page<Product> findAllByPriceBetween(float price, float price2, Pageable pageable);
+//    public Page<Product> findAllByPriceBetween(@Param("lowPrice") Double lowPrice,@Param("maxPrice") Double maxPrice,Pageable pageable);
 
     @RestResource(path = "byName")
     public Page<Product> findAllByName(@Param("name") String name, Pageable pageable);

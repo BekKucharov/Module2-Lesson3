@@ -5,6 +5,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import uz.pdp.springdatarestlesson2.entity.UserBasket;
 import uz.pdp.springdatarestlesson2.projection.UserBasketProjection;
 
-@RepositoryRestResource(path = "userBasket", excerptProjection = UserBasketProjection.class)
+@RepositoryRestResource(path = "userBasket", collectionResourceRel = "list", excerptProjection = UserBasketProjection.class)
 public interface UserBasketRepository extends JpaRepository<UserBasket, Integer> {
 }

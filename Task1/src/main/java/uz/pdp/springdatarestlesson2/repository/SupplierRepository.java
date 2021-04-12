@@ -5,6 +5,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import uz.pdp.springdatarestlesson2.entity.Supplier;
 import uz.pdp.springdatarestlesson2.projection.SupplierProjection;
 
-@RepositoryRestResource(path = "supplier", excerptProjection = SupplierProjection.class)
+@RepositoryRestResource(path = "supplier", collectionResourceRel = "list", excerptProjection = SupplierProjection.class)
 public interface SupplierRepository extends JpaRepository<Supplier,Integer> {
 }

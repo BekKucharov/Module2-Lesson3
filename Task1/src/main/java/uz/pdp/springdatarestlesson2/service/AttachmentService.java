@@ -24,7 +24,7 @@ public class AttachmentService {
 
     public void getById(Integer id, HttpServletResponse response) throws IOException {
         Optional<Attachment> attachmentId = attachmentRepository.findById(id);
-        if (!attachmentId.isPresent()){
+        if (attachmentId.isPresent()){
             Attachment attachment = attachmentId.get();
             Optional<AttachmentContent> attachmentContentId = attachmentContentRepository.findByAttachment_Id(attachment.getId());
             if (attachmentContentId.isPresent()){
